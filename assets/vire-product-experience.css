@@ -1,0 +1,291 @@
+.vire-product-shell {
+  gap: 2.4rem;
+  align-items: flex-start;
+}
+
+.vire-product-shell .product__media-wrapper {
+  padding-right: 0;
+}
+
+.vire-product-shell .product__info-container {
+  max-width: none;
+}
+
+.vire-product-shell .product__title {
+  margin-bottom: 0.8rem;
+}
+
+.vire-product-shell .product__title h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+}
+
+.vire-product-shell .product__info-container > * + * {
+  margin: 1.2rem 0;
+}
+
+.vire-product-shell .price__container {
+  margin-bottom: 0;
+}
+
+.vire-product-shell .price__regular,
+.vire-product-shell .price-item,
+.vire-product-shell .price-item--sale {
+  font-size: clamp(2rem, 2.2vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.vire-product-shell .product__tax,
+.vire-product-shell shopify-payment-terms {
+  color: rgba(var(--color-foreground), 0.65);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.vire-product-shell .product-form__input {
+  max-width: none;
+  margin-bottom: 1.8rem;
+}
+
+.vire-product-shell .product-form__input .form__label,
+.vire-product-shell .product-form__input legend {
+  margin-bottom: 0.8rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+.vire-product-shell .product-form__input--pill input[type='radio'] + label {
+  min-width: 5.6rem;
+  margin: 0 0.8rem 0.8rem 0;
+  padding: 1.2rem 1.6rem;
+  border-radius: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.vire-product-shell .product-form__quantity .quantity {
+  min-height: 5rem;
+}
+
+.vire-product-shell .quantity__button,
+.vire-product-shell .quantity__input {
+  min-height: 5rem;
+}
+
+.vire-product-shell .product__inventory {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(var(--color-foreground), 0.12);
+  background: rgba(var(--color-foreground), 0.03);
+  font-size: 1.2rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+.vire-product__buy-stack {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.vire-product__buy-stack .product-form {
+  margin: 0;
+}
+
+.vire-product__buy-stack .product-form__buttons {
+  display: grid;
+  gap: 1rem;
+}
+
+.vire-product__buy-stack .product-form__submit,
+.vire-product__buy-stack .product-form__notify,
+.vire-product__buy-stack .product-form__buy-now,
+.vire-product__buy-stack .shopify-payment-button__button {
+  min-height: 5.4rem;
+  border-radius: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.vire-product__buy-stack .product-form__notify {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  text-decoration: none;
+}
+
+.vire-product__buy-stack .product-form__buy-now {
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+.vire-product__buy-stack .product-form__submit.button--secondary {
+  border-color: rgba(var(--color-foreground), 0.22);
+  background: transparent;
+  color: rgb(var(--color-foreground));
+}
+
+.vire-product__purchase-note,
+.vire-product__shipping-note,
+.vire-product__watching {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+.vire-product__purchase-note {
+  color: rgba(var(--color-foreground), 0.78);
+}
+
+.vire-product__shipping-note {
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(var(--color-foreground), 0.12);
+  background: rgba(var(--color-foreground), 0.03);
+}
+
+.vire-product__watching {
+  color: rgb(var(--color-foreground));
+}
+
+.vire-product__payment-methods {
+  padding-top: 0.2rem;
+  border-top: 1px solid rgba(var(--color-foreground), 0.1);
+}
+
+.vire-product__eyebrow {
+  margin: 0 0 0.8rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+}
+
+.vire-product__payment-methods .list-payment {
+  justify-content: flex-start;
+  gap: 0.3rem;
+  margin: 0;
+  padding-top: 0;
+}
+
+.vire-product__payment-methods .list-payment__item {
+  padding: 0.3rem 0.5rem 0.3rem 0;
+}
+
+.vire-product__payment-methods svg {
+  height: 2rem;
+}
+
+.vire-product__benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.vire-product__benefit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(var(--color-foreground), 0.12);
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.vire-product__accordions {
+  display: grid;
+  gap: 0;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(var(--color-foreground), 0.12);
+}
+
+.vire-product__accordion {
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.12);
+}
+
+.vire-product__accordion summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.6rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+.vire-product__accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.vire-product__accordion summary .icon-caret {
+  width: 1.2rem;
+}
+
+.vire-product__accordion[open] summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+.vire-product__accordion-content {
+  padding: 0 0 1.8rem;
+  color: rgba(var(--color-foreground), 0.82);
+  line-height: 1.75;
+}
+
+.vire-product-shell .product__view-details {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .vire-product-shell {
+    gap: 3rem;
+  }
+
+  .vire-product-shell .product__info-wrapper {
+    padding-left: 4rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .vire-product-shell.product--large:not(.product--no-media) .product__media-wrapper {
+    max-width: 62%;
+    width: calc(62% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .vire-product-shell.product--large:not(.product--no-media) .product__info-wrapper {
+    max-width: 38%;
+    width: calc(38% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .vire-product__benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .vire-product__payment-methods .list-payment {
+    justify-content: flex-start;
+  }
+}

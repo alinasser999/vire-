@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "vire-static-page",
+      "settings": {
+        "eyebrow": "VIRE Blanks",
+        "heading": "NO GRAPHICS JUST FORM",
+        "body": "<p>Premium blank pieces built as the base layer of the VIRE wardrobe. Clean color, reliable weight, and a simple fit made for repeat wear.</p>",
+        "button_label": "Shop blanks",
+        "button_link": "/#vire-products",
+        "grid_eyebrow": "Blank details",
+        "grid_heading": "BASE LAYERS",
+        "card_1_title": "Fabric",
+        "card_1_text": "Soft, substantial, and built to hold shape.",
+        "card_2_title": "Fit",
+        "card_2_text": "Relaxed without losing structure.",
+        "card_3_title": "Use",
+        "card_3_text": "Wear alone or under the seasonal drop."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

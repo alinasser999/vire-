@@ -1,0 +1,147 @@
+{{ 'vire-custom.css' | asset_url | stylesheet_tag }}
+
+<section class="vire-static-page">
+  <div class="vire-static-page__intro">
+    <p class="section-eyebrow reveal">{{ section.settings.eyebrow }}</p>
+    <h1 class="section-title reveal">{{ section.settings.heading }}</h1>
+    <div class="vire-static-page__body reveal">
+      {{ section.settings.body }}
+      {{ page.content }}
+    </div>
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <a href="{{ section.settings.button_link }}" class="btn-ink reveal">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+
+  <div class="vire-static-page__visual reveal reveal-delay-1">
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1000 }}"
+        alt="{{ section.settings.heading | escape }}"
+        width="1000"
+        height="1250"
+        loading="lazy"
+      >
+    {%- else -%}
+      <img
+        src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1000&q=80"
+        alt="{{ section.settings.heading | escape }}"
+        width="1000"
+        height="1250"
+        loading="lazy"
+      >
+    {%- endif -%}
+  </div>
+</section>
+
+<section class="vire-info-pages">
+  <div class="section-eyebrow reveal">{{ section.settings.grid_eyebrow }}</div>
+  <h2 class="section-title reveal">{{ section.settings.grid_heading }}</h2>
+  <div class="vire-info-grid">
+    <article class="vire-info-panel reveal">
+      <span class="vire-info-count">01</span>
+      <h3>{{ section.settings.card_1_title }}</h3>
+      <p>{{ section.settings.card_1_text }}</p>
+    </article>
+    <article class="vire-info-panel reveal reveal-delay-1">
+      <span class="vire-info-count">02</span>
+      <h3>{{ section.settings.card_2_title }}</h3>
+      <p>{{ section.settings.card_2_text }}</p>
+    </article>
+    <article class="vire-info-panel reveal reveal-delay-2">
+      <span class="vire-info-count">03</span>
+      <h3>{{ section.settings.card_3_title }}</h3>
+      <p>{{ section.settings.card_3_text }}</p>
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Vire static page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Vire guide"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BUILT WITH INTENT"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Use this page to explain the VIRE experience with the same minimal editorial direction as the storefront.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "grid_eyebrow",
+      "label": "Grid eyebrow",
+      "default": "Details"
+    },
+    {
+      "type": "text",
+      "id": "grid_heading",
+      "label": "Grid heading",
+      "default": "WHAT TO KNOW"
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Card 1 title",
+      "default": "Fit"
+    },
+    {
+      "type": "textarea",
+      "id": "card_1_text",
+      "label": "Card 1 text",
+      "default": "Relaxed silhouettes, clean proportions, and product-specific measurements."
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Card 2 title",
+      "default": "Care"
+    },
+    {
+      "type": "textarea",
+      "id": "card_2_text",
+      "label": "Card 2 text",
+      "default": "Wash cold, wash inside out, and air dry to protect the garment."
+    },
+    {
+      "type": "text",
+      "id": "card_3_title",
+      "label": "Card 3 title",
+      "default": "Delivery"
+    },
+    {
+      "type": "textarea",
+      "id": "card_3_text",
+      "label": "Card 3 text",
+      "default": "Orders dispatch in 1-3 business days with delivery timing shown at checkout."
+    }
+  ]
+}
+{% endschema %}

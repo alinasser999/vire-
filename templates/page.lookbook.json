@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "vire-static-page",
+      "settings": {
+        "eyebrow": "Lookbook",
+        "heading": "HOW THEY WEAR IT",
+        "body": "<p>Layered neutrals, black washed textures, and everyday silhouettes. Use the lookbook as a quick styling direction before shopping the drop.</p>",
+        "button_label": "Shop the look",
+        "button_link": "/#vire-products",
+        "grid_eyebrow": "Looks",
+        "grid_heading": "STYLE NOTES",
+        "card_1_title": "Tops",
+        "card_1_text": "Start with washed tees, heavyweight blanks, or relaxed upper layers.",
+        "card_2_title": "Bottoms",
+        "card_2_text": "Keep the lower half grounded with straight, relaxed, or wide silhouettes.",
+        "card_3_title": "Finish",
+        "card_3_text": "Muted accessories and low-contrast styling keep the look clean."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

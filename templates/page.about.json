@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "vire-static-page",
+      "settings": {
+        "eyebrow": "About VIRE",
+        "heading": "REAL INTENT REAL DIRECTION",
+        "body": "<p>VIRE is built around clean silhouettes, controlled graphics, and pieces that feel deliberate from first wear.</p><p>The store experience is minimal, fast, and product-first so every customer can move from discovery to checkout without noise.</p>",
+        "button_label": "Shop all",
+        "button_link": "/#vire-products",
+        "grid_eyebrow": "Brand notes",
+        "grid_heading": "WHY VIRE",
+        "card_1_title": "Intent",
+        "card_1_text": "Every drop is edited down to pieces that carry the brand direction.",
+        "card_2_title": "Form",
+        "card_2_text": "Washed tones, relaxed cuts, and wearable proportions.",
+        "card_3_title": "Presence",
+        "card_3_text": "A quiet uniform for daily movement."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

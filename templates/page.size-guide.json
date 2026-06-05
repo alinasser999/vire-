@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "vire-static-page",
+      "settings": {
+        "eyebrow": "Size guide",
+        "heading": "FIT BEFORE CHECKOUT",
+        "body": "<p>VIRE pieces are generally relaxed. Use the measurements in each product description as the final reference before choosing your size.</p>",
+        "button_label": "Shop all",
+        "button_link": "/#vire-products",
+        "grid_eyebrow": "Fit notes",
+        "grid_heading": "MEASURE FIRST",
+        "card_1_title": "Chest",
+        "card_1_text": "Measure flat across the chest, then compare with a piece you own.",
+        "card_2_title": "Length",
+        "card_2_text": "Check shoulder-to-hem length for how cropped or long the piece feels.",
+        "card_3_title": "Bottoms",
+        "card_3_text": "Check waist, rise, thigh, and inseam before ordering."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 20,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "demo_product_1": {
+          "type": "fallback_product",
+          "settings": {
+            "demo_title": "BLACK WASHED TEE",
+            "demo_price": "LE 600.00",
+            "demo_link": "/#vire-products",
+            "demo_sold_out": false,
+            "target_collection_handle": ""
+          }
+        },
+        "demo_product_2": {
+          "type": "fallback_product",
+          "settings": {
+            "demo_title": "BLACK ESOTERIC HOODIE",
+            "demo_price": "LE 1,000.00",
+            "demo_link": "/#vire-products",
+            "demo_sold_out": true,
+            "target_collection_handle": ""
+          }
+        },
+        "demo_product_3": {
+          "type": "fallback_product",
+          "settings": {
+            "demo_title": "WASHED BOXY TEE",
+            "demo_price": "LE 650.00",
+            "demo_link": "/#vire-products",
+            "demo_sold_out": false,
+            "target_collection_handle": ""
+          }
+        },
+        "demo_product_4": {
+          "type": "fallback_product",
+          "settings": {
+            "demo_title": "RELAXED BLACK PANTS",
+            "demo_price": "LE 850.00",
+            "demo_link": "/#vire-products",
+            "demo_sold_out": false,
+            "target_collection_handle": ""
+          }
+        }
+      },
+      "block_order": [
+        "demo_product_1",
+        "demo_product_2",
+        "demo_product_3",
+        "demo_product_4"
+      ]
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}
