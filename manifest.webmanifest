@@ -1,0 +1,17 @@
+{
+  "name": "Goods Match 3D",
+  "short_name": "Goods Match",
+  "description": "A cozy, satisfying supermarket sorting puzzle. Tap, move, match three!",
+  "id": "/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#fff7ec",
+  "theme_color": "#fff7ec",
+  "categories": ["games", "puzzle", "casual"],
+  "icons": [
+    { "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "./icons/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

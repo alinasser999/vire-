@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff7ec" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="description" content="Goods Match 3D — a cozy, satisfying supermarket sorting puzzle. Tap, move, match three!" />
+  <title>Goods Match 3D</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icons/icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/tokens.css" />
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/board.css" />
+  <link rel="stylesheet" href="./styles/ui.css" />
+  <link rel="stylesheet" href="./styles/screens.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+</head>
+<body>
+  <div id="bg-layer" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+  <div id="app">
+    <header id="topbar"></header>
+    <main id="stage"></main>
+    <footer id="bottombar"></footer>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+  <div id="tutorial-root"></div>
+  <div id="ad-overlay"></div>
+
+  <div id="splash">
+    <div class="splash-inner">
+      <div class="splash-logo">🛒</div>
+      <h1 class="game-title">Goods <span>Match</span> 3D</h1>
+      <div class="splash-bar"><i></i></div>
+      <p class="splash-tip">Tap • Move • Match Three</p>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

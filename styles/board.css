@@ -1,0 +1,124 @@
+/* ============================================================
+   Board — shelves, slots, toy-like product tiles, obstacles.
+   ============================================================ */
+.board {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2.4vh, 20px);
+  padding: 14px 14px 22px;
+  scroll-behavior: smooth;
+}
+
+/* ---- shelf ---- */
+.shelf {
+  position: relative;
+  --tile: clamp(46px, 16vw, 70px);
+  padding: 0;
+  animation: shelf-in .45s var(--e-bounce) backwards;
+}
+.shelf .rack {
+  display: flex;
+  gap: clamp(6px, 1.6vw, 10px);
+  padding: clamp(8px,2vw,12px) clamp(10px,2.4vw,14px);
+  background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.4));
+  border-radius: var(--r-lg) var(--r-lg) 6px 6px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 1px 0 rgba(0,0,0,.04);
+  backdrop-filter: blur(2px);
+}
+.shelf .plank {
+  height: clamp(10px, 2.2vw, 14px);
+  margin: 0 4px;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, var(--shelf-wood), #c4884f);
+  box-shadow: 0 6px 12px rgba(160,110,60,.32), inset 0 2px 0 rgba(255,255,255,.25);
+}
+
+/* ---- slot ---- */
+.slot {
+  width: var(--tile); height: var(--tile);
+  border-radius: var(--r-md);
+  background: radial-gradient(120% 120% at 50% 20%, rgba(255,255,255,.55), rgba(180,170,200,.12));
+  box-shadow: inset 0 2px 5px rgba(120,100,140,.16);
+  display: grid; place-items: center;
+  position: relative;
+}
+
+/* ---- tile (product) ---- */
+.tile {
+  width: 100%; height: 100%;
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(120% 80% at 30% 18%, rgba(255,255,255,.85), transparent 55%),
+    linear-gradient(160deg, var(--g1), var(--g2));
+  box-shadow: 0 5px 0 rgba(0,0,0,.10), 0 8px 14px rgba(80,60,90,.18), inset 0 2px 0 rgba(255,255,255,.5);
+  display: grid; place-items: center;
+  position: relative;
+  cursor: pointer;
+  animation: tile-in .3s var(--e-bounce) backwards;
+  transition: transform .12s var(--e-bounce), box-shadow .12s var(--e-out), filter .12s;
+  will-change: transform;
+}
+.tile:active { transform: scale(.92); box-shadow: 0 2px 0 rgba(0,0,0,.12), inset 0 2px 0 rgba(255,255,255,.4); }
+.tile .glyph { font-size: calc(var(--tile) * .56); line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.18)); pointer-events: none; }
+
+.tile.is-selected {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 14px 22px rgba(80,60,90,.3), 0 0 0 4px var(--accent), inset 0 2px 0 rgba(255,255,255,.6);
+  z-index: 5;
+  animation: selected-bob .9s ease-in-out infinite;
+}
+.tile.is-wild { background: conic-gradient(from 0deg, #ff7eb6, #ffc23d, #5fd6ad, #6fc2ff, #b18cff, #ff7eb6); }
+.tile.is-wild .glyph { filter: drop-shadow(0 0 4px #fff); }
+
+/* obstacle: hidden */
+.tile.is-hidden { background: linear-gradient(160deg, #d9cfe8, #b6a9cf); }
+.tile.is-hidden .glyph { opacity: .8; }
+
+/* obstacle: frozen */
+.tile.is-frozen { filter: saturate(.7) brightness(1.05); }
+.tile.is-frozen::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(160deg, rgba(190,235,255,.7), rgba(120,200,255,.35));
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,.6);
+}
+.tile .ice { position: absolute; top: 2px; right: 3px; font-size: calc(var(--tile)*.3); z-index: 2; }
+
+/* obstacle: sticky */
+.tile.is-sticky .tape {
+  position: absolute; top: -3px; left: 50%; transform: translateX(-50%) rotate(-6deg);
+  width: 60%; height: 14px; background: rgba(255,225,150,.85);
+  border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.sticky-wiggle { animation: wiggle .4s; }
+
+/* locked shelf */
+.shelf.is-locked .rack { filter: grayscale(.4) brightness(.97); }
+.lock-overlay {
+  position: absolute; inset: 0; border-radius: var(--r-lg);
+  background: repeating-linear-gradient(45deg, rgba(120,100,140,.12) 0 12px, rgba(120,100,140,.18) 12px 24px);
+  display: grid; place-items: center; gap: 2px;
+  backdrop-filter: blur(1px);
+}
+.lock-overlay .lock-ico { font-size: 30px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.2)); }
+.lock-overlay b { background: #fff; color: var(--c-lav-deep); border-radius: 99px; padding: 1px 9px; font-size: 13px; box-shadow: var(--sh-1); }
+.lock-overlay.unlocking { animation: unlock-pop .5s var(--e-bounce) forwards; }
+
+.rot-badge { position: absolute; top: -8px; right: -6px; font-size: 20px; animation: spin 4s linear infinite; }
+.shelf.is-rotating .rack { box-shadow: inset 0 0 0 2px rgba(177,140,255,.35), inset 0 1px 0 rgba(255,255,255,.8); }
+
+/* feedback */
+.shelf.shake { animation: shake .4s; }
+.shelf.hint-target .rack { box-shadow: 0 0 0 3px var(--accent), inset 0 1px 0 rgba(255,255,255,.8); animation: hint-glow 1s ease-in-out infinite; }
+.shelf.cleared-flash .rack { animation: cleared-flash .6s var(--e-out); }
+.tile.hint-pulse { animation: hint-pulse 1s ease-in-out infinite; }
+
+/* fly / pop helpers */
+.fly-ghost { pointer-events: none; box-shadow: 0 12px 22px rgba(80,60,90,.35); }
+.pop-glyph {
+  position: fixed; z-index: 60; pointer-events: none; transform: translate(-50%,-50%);
+  animation: pop-burst .5s var(--e-out) forwards;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "goods-match-3d",
+  "version": "1.0.0",
+  "description": "Goods Match 3D — a cozy, premium supermarket sorting puzzle (PWA).",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node tools/serve.js",
+    "serve": "node tools/serve.js",
+    "test": "node tools/test-levels.js && node tools/test-engine.js",
+    "test:levels": "node tools/test-levels.js",
+    "test:engine": "node tools/test-engine.js",
+    "test:dom": "node tools/test-dom.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  }
+}

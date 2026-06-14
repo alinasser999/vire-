@@ -1,0 +1,46 @@
+/* ============================================================
+   Animations — keyframes & motion utilities. All easing curves
+   tuned for a soft, bouncy, candy feel. Honors reduce-motion.
+   ============================================================ */
+.pop-in { animation: pop-in .34s var(--e-bounce); }
+
+@keyframes pop-in   { from { transform: scale(.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bob      { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+@keyframes shelf-in { from { transform: translateY(14px) scale(.96); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes tile-in  { 0% { transform: scale(0) rotate(-12deg); opacity: 0; } 70% { transform: scale(1.12) rotate(4deg); } 100% { transform: scale(1) rotate(0); opacity: 1; } }
+
+@keyframes selected-bob { 0%,100% { transform: translateY(-10px) scale(1.08); } 50% { transform: translateY(-15px) scale(1.1); } }
+
+@keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
+@keyframes wiggle { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-7deg); } 75% { transform: rotate(7deg); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes hint-pulse { 0%,100% { transform: scale(1); box-shadow: 0 5px 0 rgba(0,0,0,.10), 0 0 0 0 var(--accent); } 50% { transform: scale(1.08); box-shadow: 0 6px 0 rgba(0,0,0,.10), 0 0 0 5px var(--accent); } }
+@keyframes hint-glow { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.06); } }
+
+@keyframes cleared-flash { 0% { filter: brightness(1); } 30% { filter: brightness(1.5) saturate(1.3); } 100% { filter: brightness(1); } }
+@keyframes unlock-pop { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.2); opacity: 0; } }
+
+@keyframes pop-burst { 0% { transform: translate(-50%,-50%) scale(.4); opacity: 1; } 50% { transform: translate(-50%,-50%) scale(1.4); opacity: 1; } 100% { transform: translate(-50%,-90%) scale(.6); opacity: 0; } }
+
+@keyframes btn-pop { 0%,90%,100% { transform: scale(1); } 95% { transform: scale(1.04); } }
+@keyframes node-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes star-pop { 0% { transform: scale(0) rotate(-30deg); } 60% { transform: scale(1.3) rotate(8deg); } 100% { transform: scale(1) rotate(0); } }
+
+@keyframes pulse-fast { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+@keyframes pulse-soft { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+
+/* current node needs to keep its horizontal offset while bouncing */
+.node.current.side-l { animation: node-bounce-l 1.6s var(--e-bounce) infinite; }
+.node.current.side-r { animation: node-bounce-r 1.6s var(--e-bounce) infinite; }
+@keyframes node-bounce-l { 0%,100% { transform: translateX(-58px) translateY(0); } 50% { transform: translateX(-58px) translateY(-7px); } }
+@keyframes node-bounce-r { 0%,100% { transform: translateX(58px) translateY(0); } 50% { transform: translateX(58px) translateY(-7px); } }
+
+/* ===== reduce motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .08s !important; }
+}
+body.reduce-motion .blob { animation: none; }
+body.reduce-motion .pop, body.reduce-motion .node.current, body.reduce-motion .lose-emoji, body.reduce-motion .splash-logo { animation: none; }

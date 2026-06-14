@@ -1,0 +1,78 @@
+/* ============================================================
+   Goods Match 3D — Design Tokens
+   Single source of truth for color, type, spacing, motion.
+   ============================================================ */
+:root {
+  /* --- Soft brand palette --- */
+  --c-cream:      #fff7ec;
+  --c-cream-2:    #fde7d3;
+  --c-sky:        #bfe6ff;
+  --c-sky-deep:   #6fc2ff;
+  --c-mint:       #c7f5e3;
+  --c-mint-deep:  #5fd6ad;
+  --c-peach:      #ffd9c2;
+  --c-peach-deep: #ff9d72;
+  --c-lavender:   #e3d6ff;
+  --c-lav-deep:   #b18cff;
+  --c-pink:       #ffc2dd;
+  --c-pink-deep:  #ff7eb6;
+  --c-sun:        #ffe08a;
+  --c-sun-deep:   #ffc23d;
+
+  /* --- Functional --- */
+  --ink:          #4a3f55;
+  --ink-soft:     #7d7190;
+  --ink-faint:    #b6acc4;
+  --paper:        #ffffff;
+  --good:         #57c98a;
+  --warn:         #ffb13d;
+  --bad:          #ff7b8a;
+  --gold:         #ffc23d;
+  --gold-deep:    #f59e0b;
+
+  /* --- Surfaces --- */
+  --surface:        rgba(255,255,255,0.86);
+  --surface-strong: #ffffff;
+  --shelf:          linear-gradient(180deg,#fff5e6 0%,#ffe9cf 100%);
+  --shelf-edge:     #e9b98a;
+  --shelf-wood:     #d99c63;
+
+  /* --- Radii --- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 34px;
+  --r-pill: 999px;
+
+  /* --- Spacing scale --- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-7: 32px; --s-8: 44px;
+
+  /* --- Shadows (soft, candy-like) --- */
+  --sh-1: 0 2px 6px rgba(125,90,60,.12);
+  --sh-2: 0 6px 16px rgba(125,90,60,.16);
+  --sh-3: 0 12px 30px rgba(125,90,60,.20);
+  --sh-pop: 0 10px 0 rgba(0,0,0,.10);
+  --inset-soft: inset 0 -3px 0 rgba(0,0,0,.08), inset 0 2px 0 rgba(255,255,255,.5);
+
+  /* --- Typography --- */
+  --font: "Baloo 2","Quicksand",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --fw-md: 600;
+  --fw-bd: 700;
+  --fw-xb: 800;
+
+  /* --- Motion --- */
+  --e-out:    cubic-bezier(.22,1,.36,1);
+  --e-bounce: cubic-bezier(.34,1.56,.64,1);
+  --e-soft:   cubic-bezier(.45,.05,.25,1);
+  --t-fast: .14s;
+  --t-med:  .26s;
+  --t-slow: .42s;
+
+  /* --- Layout --- */
+  --top-h: 64px;
+  --bottom-h: 84px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
+}
