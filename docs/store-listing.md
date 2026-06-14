@@ -55,6 +55,6 @@ Download Goods Match 3D and start sorting your way to a happy, tidy little store
 
 ## Graphic assets needed
 - **App icon:** 512×512 PNG → `icons/icon-512.png`
-- **Feature graphic:** 1024×500 PNG (create one using the brand palette: cream → sky)
+- **Feature graphic:** 1024×500 PNG → `store/feature-graphic.png` (included)
 - **Phone screenshots:** 2–8, 16:9 or 9:16, taken from real gameplay on the live site
 - (Optional) **Promo video:** a YouTube link of gameplay
