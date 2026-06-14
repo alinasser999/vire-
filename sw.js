@@ -1,11 +1,12 @@
 /* Service worker — offline-first cache for the whole game.
    Bump CACHE to invalidate after a release. */
-const CACHE = 'gm3d-v1';
+const CACHE = 'gm3d-v2';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './styles/tokens.css', './styles/base.css', './styles/board.css',
   './styles/ui.css', './styles/screens.css', './styles/animations.css',
   './src/main.js', './icons/icon.svg',
+  './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png',
 ];
 
 self.addEventListener('install', (e) => {
