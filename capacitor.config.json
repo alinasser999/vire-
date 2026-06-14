@@ -1,0 +1,7 @@
+{
+  "appId": "com.alinasser.goodsmatch3d",
+  "appName": "Goods Match 3D",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "backgroundColor": "#fff7ec"
+}

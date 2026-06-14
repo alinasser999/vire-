@@ -1,0 +1,90 @@
+name: Build Android APK
+
+# Builds a sideloadable debug APK on GitHub's servers (free Android SDK) and
+# attaches it to a Release you can download straight to your phone.
+# Trigger: automatically on pushes to main, or manually from the Actions tab.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'store/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-apk
+  cancel-in-progress: true
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java (JDK 17)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Stage web assets
+        run: node tools/stage-www.js
+
+      - name: Add Android platform
+        run: npx cap add android
+
+      - name: Generate branded launcher icons
+        run: |
+          mkdir -p assets
+          cp icons/icon-1024.png assets/icon.png
+          npx @capacitor/assets generate --android --iconBackgroundColor '#fff7ec' --iconBackgroundColorDark '#fff7ec' || echo "icon gen skipped"
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Build debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Collect APK
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk goods-match-3d.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goods-match-3d-apk
+          path: goods-match-3d.apk
+
+      - name: Publish to a downloadable Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-latest
+          name: Goods Match 3D — Android APK
+          body: |
+            📲 **Sideloadable APK** (free, no Play Store needed).
+
+            **Install on Android:**
+            1. Download `goods-match-3d.apk` below on your phone.
+            2. Open it → if prompted, allow **"Install unknown apps"** for your browser/Files.
+            3. Tap Install → play!
+
+            This is a debug build for free sharing/sideloading. For the Play Store, build a
+            signed release (`.aab`) — see `docs/PLAY_STORE.md`.
+          files: goods-match-3d.apk
+          make_latest: true

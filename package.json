@@ -1,7 +1,7 @@
 {
   "name": "goods-match-3d",
   "version": "1.0.0",
-  "description": "Goods Match 3D — a cozy, premium supermarket sorting puzzle (PWA).",
+  "description": "Goods Match 3D — a cozy, premium supermarket sorting puzzle (PWA + Android).",
   "type": "module",
   "private": true,
   "scripts": {
@@ -10,9 +10,16 @@
     "test": "node tools/test-levels.js && node tools/test-engine.js",
     "test:levels": "node tools/test-levels.js",
     "test:engine": "node tools/test-engine.js",
-    "test:dom": "node tools/test-dom.js"
+    "test:dom": "node tools/test-dom.js",
+    "android:stage": "node tools/stage-www.js",
+    "android:add": "npm run android:stage && npx cap add android",
+    "android:apk": "cd android && ./gradlew assembleDebug"
   },
   "devDependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
     "jsdom": "^24.0.0"
   }
 }
