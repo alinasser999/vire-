@@ -1,6 +1,6 @@
 /* Service worker — offline-first cache for the whole game.
    Bump CACHE to invalidate after a release. */
-const CACHE = 'gm3d-v2';
+const CACHE = 'gm3d-v3';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './styles/tokens.css', './styles/base.css', './styles/board.css',
