@@ -5,6 +5,7 @@
    and animation only ever touches the pieces that actually move.
    ============================================================ */
 import { getProduct } from '../data/products.js';
+import { productSvg, mysterySvg, rainbowSvg } from '../data/productArt.js';
 
 export class BoardView {
   constructor(stage, fx, audio) {
@@ -83,9 +84,11 @@ export class BoardView {
     el.style.setProperty('--g2', p.g[1]);
     if (it.hidden) {
       el.classList.add('is-hidden');
-      el.innerHTML = `<span class="glyph">❓</span>`;
+      el.innerHTML = mysterySvg(it.uid);
+    } else if (it.wild) {
+      el.innerHTML = rainbowSvg();
     } else {
-      el.innerHTML = `<span class="glyph">${it.wild ? '🌈' : p.glyph}</span>`;
+      el.innerHTML = productSvg(it.type, it.uid);
     }
     if (it.frozen > 0) {
       el.classList.add('is-frozen');
@@ -161,7 +164,7 @@ export class BoardView {
       const g = document.createElement('div');
       g.className = 'tile fly-ghost';
       g.style.setProperty('--g1', p.g[0]); g.style.setProperty('--g2', p.g[1]);
-      g.innerHTML = `<span class="glyph">${p.glyph}</span>`;
+      g.innerHTML = productSvg(item.type, item.uid);
       Object.assign(g.style, {
         position: 'fixed', left: from.left + 'px', top: from.top + 'px',
         width: from.width + 'px', height: from.height + 'px', zIndex: 60, margin: 0,
@@ -186,10 +189,11 @@ export class BoardView {
         const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
         const pop = document.createElement('div');
         pop.className = 'pop-glyph';
-        pop.textContent = p.glyph;
+        pop.style.setProperty('--g1', p.g[0]); pop.style.setProperty('--g2', p.g[1]);
+        pop.innerHTML = productSvg(c.item ? c.item.type : m.type, (c.item && c.item.uid) || Math.random());
         Object.assign(pop.style, {
           position: 'fixed', left: cx + 'px', top: cy + 'px',
-          fontSize: Math.min(r.width, r.height) * 0.6 + 'px',
+          width: r.width + 'px', height: r.height + 'px',
         });
         document.body.appendChild(pop);
         setTimeout(() => pop.remove(), 520);

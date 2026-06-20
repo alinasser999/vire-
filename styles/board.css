@@ -64,6 +64,8 @@
 }
 .tile:active { transform: scale(.92); box-shadow: 0 2px 0 rgba(0,0,0,.12), inset 0 2px 0 rgba(255,255,255,.4); }
 .tile .glyph { font-size: calc(var(--tile) * .56); line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.18)); pointer-events: none; }
+.tile .prod { width: 76%; height: 76%; display: block; pointer-events: none; filter: drop-shadow(0 2px 2px rgba(0,0,0,.16)); }
+.prod { overflow: visible; }
 
 .tile.is-selected {
   transform: translateY(-10px) scale(1.08);
@@ -120,5 +122,7 @@
 .fly-ghost { pointer-events: none; box-shadow: 0 12px 22px rgba(80,60,90,.35); }
 .pop-glyph {
   position: fixed; z-index: 60; pointer-events: none; transform: translate(-50%,-50%);
+  display: grid; place-items: center;
   animation: pop-burst .5s var(--e-out) forwards;
 }
+.pop-glyph .prod { width: 90%; height: 90%; }
